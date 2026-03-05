@@ -1,6 +1,5 @@
 package org.example;
 
-import javax.swing.*;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -17,10 +16,10 @@ public class BouncersApp {
             Bouncer bouncer;
             switch(rand.nextInt(2)){
                 case 0:
-                    bouncer = new SquareSwing(displayer);
+                    bouncer = new SquareFull(displayer);
                     break;
                 default:
-                    bouncer = new CircleSwing(displayer);
+                    bouncer = new CircleFull(displayer);
                     break;
             }
             bouncers.add(bouncer);
@@ -30,8 +29,8 @@ public class BouncersApp {
     public void run() throws InterruptedException {
         while (true) {
             for (Bouncer bouncer : bouncers) {
-                bouncer.move(displayer);
-                bouncer.draw(displayer);
+                bouncer.move();
+                bouncer.draw();
             }
             TimeUnit.MILLISECONDS.sleep(16); // a bit more than 60fps
             displayer.repaint();

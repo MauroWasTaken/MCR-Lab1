@@ -3,12 +3,14 @@ package org.example;
 import javax.swing.*;
 import java.util.Random;
 
-public abstract class Bouncer {
+public abstract class Bouncer implements Bouncable {
     private int width,height;
     private Vector2d position; //middle point
     private Vector2d direction;
+    protected final Displayer displayer;
 
-    public Bouncer(Displayer displayer){
+    public Bouncer(Displayer displayer) {
+        this.displayer = displayer;
         Random rand = new Random();
         position = new Vector2d(0,0);
         direction = new Vector2d(0,0);
@@ -48,7 +50,7 @@ public abstract class Bouncer {
         this.direction = direction;
     }
 
-    public void move(Displayer displayer){
+    public void move() {
         int newX = position.getX() + direction.getX();
         int newY = position.getY() + direction.getY();
         //left right wall
@@ -71,5 +73,5 @@ public abstract class Bouncer {
         position.setY(newY);
     }
 
-    public abstract void draw(Displayer displayer);
+    public abstract void draw();
 }
