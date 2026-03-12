@@ -14,8 +14,8 @@ public abstract class Bouncer implements Bouncable {
         Random rand = new Random();
         position = new Vector2d(0,0);
         direction = new Vector2d(0,0);
-        direction.setY(rand.nextInt(3) + 1);
-        direction.setX(rand.nextInt(3) + 1);
+        direction.setY((rand.nextInt(10) + 1) * rand.nextInt(2) - 1);
+        direction.setX((rand.nextInt(10) + 1) * rand.nextInt(2) - 1);
     }
 
     public int getHeight() {

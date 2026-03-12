@@ -2,7 +2,7 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.function.Consumer;
+import java.awt.event.KeyAdapter;
 
 public class DisplayerSwing extends JFrame implements Displayer  {
     public DisplayerSwing(){
@@ -28,6 +28,9 @@ public class DisplayerSwing extends JFrame implements Displayer  {
     }
     public void setTitle(String title){
         super.setTitle(title);
+    }
+    public void addKeyListener(KeyAdapter keyAdapter) {
+        super.addKeyListener(keyAdapter);
     }
 
 }
