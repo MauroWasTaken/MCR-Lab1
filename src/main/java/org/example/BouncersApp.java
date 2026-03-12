@@ -5,10 +5,10 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class BouncersApp {
-    private final LinkedList<Bouncer> bouncers = new LinkedList<>();
+    private final LinkedList<Bouncable> bouncers = new LinkedList<>();
     Displayer displayer;
     int number = 10;
-    public BouncersApp (){
+    public BouncersApp() {
         displayer = new DisplayerSwing();
         displayer.setTitle("Bouncers");
         Random rand = new Random();
@@ -28,7 +28,7 @@ public class BouncersApp {
     }
     public void run() throws InterruptedException {
         while (true) {
-            for (Bouncer bouncer : bouncers) {
+            for (Bouncable bouncer : bouncers) {
                 bouncer.move();
                 bouncer.draw();
             }
@@ -38,7 +38,6 @@ public class BouncersApp {
 
     }
     public static void main(String[] args) throws InterruptedException {
-
         new BouncersApp().run();
     }
 }
