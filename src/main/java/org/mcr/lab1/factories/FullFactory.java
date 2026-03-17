@@ -1,4 +1,9 @@
-package org.example;
+package org.mcr.lab1.factories;
+
+import org.mcr.lab1.boucable.Bouncer;
+import org.mcr.lab1.boucable.circle.CircleFull;
+import org.mcr.lab1.boucable.displayer.Displayer;
+import org.mcr.lab1.boucable.square.SquareFull;
 
 public class FullFactory implements BouncersFactory {
     private static FullFactory instance;

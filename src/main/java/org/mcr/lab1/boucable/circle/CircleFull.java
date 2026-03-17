@@ -25,7 +25,7 @@ public class CircleFull extends Circle {
     }
 
     public void draw() {
-        //super.draw();
+        super.draw();
         // TODO
         final Image image = this.frame.createImage(getHeight(), getWidth());
         this.renderer.display((Graphics2D) image.getGraphics(), this);
