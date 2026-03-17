@@ -1,37 +1,45 @@
 package org.mcr.lab1;
 
 import org.mcr.lab1.boucable.Bouncable;
-import org.mcr.lab1.boucable.Bouncer;
-import org.mcr.lab1.boucable.circle.CircleFull;
-import org.mcr.lab1.boucable.square.SquareFull;
 import org.mcr.lab1.boucable.displayer.Displayer;
-import org.mcr.lab1.boucable.displayer.DefaultDisplayer;
 
-import java.util.LinkedList;
-import java.util.Random;
+import java.awt.event.KeyAdapter;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class BouncersApp {
-    private final LinkedList<Bouncable> bouncers = new LinkedList<>();
+    private final CopyOnWriteArrayList<Bouncable> bouncers = new CopyOnWriteArrayList<>();
     Displayer displayer;
-    int number = 10;
-    public BouncersApp() {
-        displayer = new DefaultDisplayer();
-        displayer.setTitle("Bouncers");
-        Random rand = new Random();
-        for (int i = 0; i < number; i++) {
-            Bouncer bouncer;
-            switch(rand.nextInt(2)){
-                case 0:
-                    bouncer = new SquareFull(displayer);
-                    break;
-                default:
-                    bouncer = new CircleFull(displayer);
-                    break;
-            }
-            bouncers.add(bouncer);
+    KeyAdapter keyAdapter;
+
+    private void addBouncers(BouncersFactory factory){
+        for (int i = 0; i < 10; i++) {
+            bouncers.add(factory.createCircle(displayer));
+            bouncers.add(factory.createSquare(displayer));
         }
-        displayer.repaint();
+    }
+    private void clearBouncers(){
+        bouncers.clear(); // TODO: fix lingering jframes on screen
+    }
+    private void quit(){
+        System.exit(0);
+    }
+
+    public BouncersApp (){
+        displayer = new DisplayerSwing();
+        displayer.setTitle("Bouncers");
+        keyAdapter = new KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                switch (e.getKeyCode()) {
+                    case java.awt.event.KeyEvent.VK_Q -> quit();
+                    case java.awt.event.KeyEvent.VK_E -> clearBouncers();
+                    case java.awt.event.KeyEvent.VK_F -> addBouncers(FullFactory.getInstance());
+                    case java.awt.event.KeyEvent.VK_B -> addBouncers(StrokeFactory.getInstance());
+                }
+            }
+        };
+        displayer.addKeyListener(keyAdapter);
     }
     public void run() throws InterruptedException {
         while (true) {
@@ -44,6 +52,7 @@ public class BouncersApp {
         }
 
     }
+
     public static void main(String[] args) throws InterruptedException {
         new BouncersApp().run();
     }

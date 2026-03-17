@@ -16,6 +16,7 @@ public class CircleFull extends Circle {
                 super.paintComponent(g);
                 g.setColor(color);
                 g.fillOval(0,0, getWidth(), getHeight());
+
             }
         };
         this.draw();

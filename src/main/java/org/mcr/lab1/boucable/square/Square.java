@@ -19,6 +19,8 @@ public abstract class Square extends Bouncer {
         int size = rand.nextInt(50) + 10;
         setWidth(size);
         setHeight(size);
+        getPosition().setY(rand.nextInt(displayer.getHeight() - getHeight()) + getHeight() / 2);
+        getPosition().setX(rand.nextInt(displayer.getWidth() - getWidth()) + getWidth() / 2);
         getPosition().setY(rand.nextInt(displayer.getHeight() - 2 * getHeight()) + getHeight());
         getPosition().setX(rand.nextInt(displayer.getWidth() - 2 * getWidth()) + getWidth());
 

@@ -2,6 +2,7 @@ package org.mcr.lab1.boucable.displayer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
 
 public class DefaultDisplayer extends JFrame implements Displayer  {
     public DefaultDisplayer(){
@@ -27,6 +28,9 @@ public class DefaultDisplayer extends JFrame implements Displayer  {
     }
     public void setTitle(String title){
         super.setTitle(title);
+    }
+    public void addKeyListener(KeyAdapter keyAdapter) {
+        super.addKeyListener(keyAdapter);
     }
 
 }
