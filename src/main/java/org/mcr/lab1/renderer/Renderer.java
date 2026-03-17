@@ -1,4 +1,6 @@
-package org.example;
+package org.mcr.lab1.renderer;
+
+import org.mcr.lab1.boucable.Bouncable;
 
 import java.awt.Graphics2D;
 

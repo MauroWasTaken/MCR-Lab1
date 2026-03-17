@@ -1,4 +1,6 @@
-package org.example;
+package org.mcr.lab1.boucable.square;
+
+import org.mcr.lab1.boucable.displayer.Displayer;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,6 @@
-package org.example;
+package org.mcr.lab1.boucable.circle;
+
+import org.mcr.lab1.boucable.displayer.Displayer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +19,7 @@ public class CircleStroke extends Circle {
                 g.drawOval(0,0, getWidth(), getHeight());
             }
         };
-        draw();
+        this.draw();
         this.panel.setOpaque(false);
         this.frame.add(panel);
     }

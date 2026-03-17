@@ -1,16 +1,24 @@
-package org.example;
+package org.mcr.lab1.boucable;
 
-import javax.swing.*;
+import org.mcr.lab1.boucable.displayer.Displayer;
+import org.mcr.lab1.renderer.Renderer;
+import org.mcr.lab1.renderer.DefaultRenderer;
+
 import java.util.Random;
 
 public abstract class Bouncer implements Bouncable {
     private int width,height;
-    private Vector2d position; //middle point
-    private Vector2d direction;
+    protected Vector2d position; //middle point
+    protected Vector2d direction;
     protected final Displayer displayer;
+
+    protected final Renderer renderer;
 
     public Bouncer(Displayer displayer) {
         this.displayer = displayer;
+
+        this.renderer = new DefaultRenderer();
+
         Random rand = new Random();
         position = new Vector2d(0,0);
         direction = new Vector2d(0,0);

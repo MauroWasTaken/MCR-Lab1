@@ -1,11 +1,10 @@
-package org.example;
+package org.mcr.lab1.boucable.displayer;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.function.Consumer;
 
-public class DisplayerSwing extends JFrame implements Displayer  {
-    public DisplayerSwing(){
+public class DefaultDisplayer extends JFrame implements Displayer  {
+    public DefaultDisplayer(){
         super("");
         this.setSize(500, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

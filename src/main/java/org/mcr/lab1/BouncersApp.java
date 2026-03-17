@@ -1,4 +1,11 @@
-package org.example;
+package org.mcr.lab1;
+
+import org.mcr.lab1.boucable.Bouncable;
+import org.mcr.lab1.boucable.Bouncer;
+import org.mcr.lab1.boucable.circle.CircleFull;
+import org.mcr.lab1.boucable.square.SquareFull;
+import org.mcr.lab1.boucable.displayer.Displayer;
+import org.mcr.lab1.boucable.displayer.DefaultDisplayer;
 
 import java.util.LinkedList;
 import java.util.Random;
@@ -9,7 +16,7 @@ public class BouncersApp {
     Displayer displayer;
     int number = 10;
     public BouncersApp() {
-        displayer = new DisplayerSwing();
+        displayer = new DefaultDisplayer();
         displayer.setTitle("Bouncers");
         Random rand = new Random();
         for (int i = 0; i < number; i++) {

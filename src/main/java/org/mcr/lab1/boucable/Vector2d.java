@@ -1,4 +1,4 @@
-package org.example;
+package org.mcr.lab1.boucable;
 
 public class Vector2d {
     private int x, y;

@@ -1,4 +1,4 @@
-package org.example;
+package org.mcr.lab1.boucable.displayer;
 
 import java.awt.*;
 

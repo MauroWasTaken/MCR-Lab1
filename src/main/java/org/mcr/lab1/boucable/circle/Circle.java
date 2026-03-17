@@ -1,4 +1,7 @@
-package org.example;
+package org.mcr.lab1.boucable.circle;
+
+import org.mcr.lab1.boucable.Bouncer;
+import org.mcr.lab1.boucable.displayer.Displayer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +23,6 @@ public abstract class Circle extends Bouncer {
         getPosition().setY(rand.nextInt(displayer.getHeight() - 2 * getHeight()) + getHeight());
         getPosition().setX(rand.nextInt(displayer.getWidth() - 2 * getWidth()) + getWidth());
 
-        // TODO: find a way to couple shape with move() method (to update shape's coordinates)
         this.shape = new Ellipse2D.Double(getPosition().getX(), getPosition().getY(), size, size);
 
         if(displayer instanceof JFrame) {
