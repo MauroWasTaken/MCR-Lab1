@@ -1,4 +1,4 @@
-package org.mcr.lab1.boucable.displayer;
+package org.mcr.lab1.bouncable.displayer;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;

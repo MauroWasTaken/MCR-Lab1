@@ -1,4 +1,4 @@
-package org.mcr.lab1.boucable;
+package org.mcr.lab1.bouncable;
 
 import java.awt.*;
 

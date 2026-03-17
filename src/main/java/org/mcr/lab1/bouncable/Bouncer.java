@@ -1,6 +1,6 @@
-package org.mcr.lab1.boucable;
+package org.mcr.lab1.bouncable;
 
-import org.mcr.lab1.boucable.displayer.Displayer;
+import org.mcr.lab1.bouncable.displayer.Displayer;
 import org.mcr.lab1.renderer.Renderer;
 import org.mcr.lab1.renderer.DefaultRenderer;
 

@@ -1,4 +1,4 @@
-package org.mcr.lab1.boucable.displayer;
+package org.mcr.lab1.bouncable.displayer;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,13 +1,13 @@
-package org.mcr.lab1.boucable.square;
+package org.mcr.lab1.bouncable.circle;
 
-import org.mcr.lab1.boucable.displayer.Displayer;
+import org.mcr.lab1.bouncable.displayer.Displayer;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class SquareFull extends Square {
-    private final Color color = Color.ORANGE;
-    public SquareFull(Displayer displayer) {
+public class CircleStroke extends Circle {
+    private final Color color = Color.GREEN;
+    public CircleStroke(Displayer displayer) {
         super(displayer);
 
         this.panel = new JPanel() {
@@ -15,7 +15,8 @@ public class SquareFull extends Square {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.setColor(color);
-                g.fillRect(0, 0, getWidth(), getHeight());
+                ((Graphics2D) g).setStroke(new BasicStroke(2));
+                g.drawOval(0,0, getWidth(), getHeight());
             }
         };
         this.draw();

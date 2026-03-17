@@ -1,6 +1,6 @@
 package org.mcr.lab1.renderer;
 
-import org.mcr.lab1.boucable.Bouncable;
+import org.mcr.lab1.bouncable.Bouncable;
 
 import java.awt.*;
 

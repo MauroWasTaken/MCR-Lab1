@@ -1,7 +1,7 @@
-package org.mcr.lab1.boucable.circle;
+package org.mcr.lab1.bouncable.circle;
 
-import org.mcr.lab1.boucable.Bouncer;
-import org.mcr.lab1.boucable.displayer.Displayer;
+import org.mcr.lab1.bouncable.Bouncer;
+import org.mcr.lab1.bouncable.displayer.Displayer;
 
 import javax.swing.*;
 import java.awt.*;

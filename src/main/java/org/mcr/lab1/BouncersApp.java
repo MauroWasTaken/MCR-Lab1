@@ -1,8 +1,8 @@
 package org.mcr.lab1;
 
-import org.mcr.lab1.boucable.Bouncable;
-import org.mcr.lab1.boucable.displayer.DefaultDisplayer;
-import org.mcr.lab1.boucable.displayer.Displayer;
+import org.mcr.lab1.bouncable.Bouncable;
+import org.mcr.lab1.bouncable.displayer.DefaultDisplayer;
+import org.mcr.lab1.bouncable.displayer.Displayer;
 import org.mcr.lab1.factories.BouncersFactory;
 import org.mcr.lab1.factories.FullFactory;
 import org.mcr.lab1.factories.StrokeFactory;

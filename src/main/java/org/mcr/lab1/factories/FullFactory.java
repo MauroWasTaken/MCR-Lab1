@@ -1,9 +1,9 @@
 package org.mcr.lab1.factories;
 
-import org.mcr.lab1.boucable.Bouncer;
-import org.mcr.lab1.boucable.circle.CircleFull;
-import org.mcr.lab1.boucable.displayer.Displayer;
-import org.mcr.lab1.boucable.square.SquareFull;
+import org.mcr.lab1.bouncable.Bouncer;
+import org.mcr.lab1.bouncable.circle.CircleFull;
+import org.mcr.lab1.bouncable.displayer.Displayer;
+import org.mcr.lab1.bouncable.square.SquareFull;
 
 public class FullFactory implements BouncersFactory {
     private static FullFactory instance;
