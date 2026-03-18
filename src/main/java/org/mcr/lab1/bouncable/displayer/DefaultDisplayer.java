@@ -32,5 +32,10 @@ public class DefaultDisplayer extends JFrame implements Displayer  {
     public void addKeyListener(KeyAdapter keyAdapter) {
         super.addKeyListener(keyAdapter);
     }
+    public void clear(){
+        this.getContentPane().removeAll();
+        this.getContentPane().revalidate();
+        this.getContentPane().repaint();
+    }
 
 }

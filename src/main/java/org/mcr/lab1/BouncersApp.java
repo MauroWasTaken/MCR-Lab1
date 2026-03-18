@@ -23,7 +23,8 @@ public class BouncersApp {
         }
     }
     private void clearBouncers(){
-        bouncers.clear(); // TODO: fix lingering jframes on screen
+        bouncers.clear();
+        displayer.clear();
     }
     private void quit(){
         System.exit(0);
