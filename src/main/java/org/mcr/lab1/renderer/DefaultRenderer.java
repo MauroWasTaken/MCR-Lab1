@@ -1,21 +1,19 @@
 package org.mcr.lab1.renderer;
 
 import org.mcr.lab1.bouncable.Bouncable;
+import org.mcr.lab1.bouncable.circle.CircleStroke;
+import org.mcr.lab1.bouncable.square.SquareStroke;
 
 import java.awt.*;
 
 public class DefaultRenderer implements Renderer {
     public void display(Graphics2D graphics, Bouncable bouncable) {
-        // FIXME/TODO
-        //graphics.draw(bouncable.getShape());
-        //graphics.setColor(bouncable.getColor());
-        //if (bouncable instanceof SquareFull || bouncable instanceof CircleFull) {
-        //    graphics.fill(bouncable.getShape());
-        //}
-
-        graphics.fill(bouncable.getShape());
         graphics.setColor(bouncable.getColor());
-
-
+        if (bouncable instanceof CircleStroke || bouncable instanceof SquareStroke) {
+            graphics.setStroke(new BasicStroke(2f));
+            graphics.draw(bouncable.getShape());
+        } else {
+            graphics.fill(bouncable.getShape());
+        }
     }
 }

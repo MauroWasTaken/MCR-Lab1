@@ -3,15 +3,11 @@ package org.mcr.lab1.bouncable.square;
 import org.mcr.lab1.bouncable.Bouncer;
 import org.mcr.lab1.bouncable.displayer.Displayer;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Rectangle;
 import java.util.Random;
 
 public abstract class Square extends Bouncer {
-    protected JPanel panel;
-    protected JFrame frame;
-
-    protected final Shape shape;
+    protected final Rectangle shape;
 
     public Square(Displayer displayer) {
         super(displayer);
@@ -25,16 +21,16 @@ public abstract class Square extends Bouncer {
         getPosition().setX(rand.nextInt(displayer.getWidth() - 2 * getWidth()) + getWidth());
 
         this.shape = new Rectangle(getPosition().getX(), getPosition().getY(), size, size);
-
-        if(displayer instanceof JFrame) {
-            this.frame = (JFrame) displayer;
-        } else {
-            throw new IllegalArgumentException("Displayer must be an instance of JFrame");
-        }
+        draw();
     }
 
-    public void draw() {
-        this.panel.setBounds((int) (getPosition().getX() - 0.5 * getWidth()), (int) (getPosition().getY() - 0.5 * getHeight()), getWidth(), getHeight());
+    public void draw(){
+        shape.setBounds(
+                (int) (getPosition().getX() - 0.5 * getWidth()),
+                (int) (getPosition().getY() - 0.5 * getHeight()),
+                getWidth(),
+                getHeight()
+        );
     }
 
     public void move() {

@@ -3,16 +3,11 @@ package org.mcr.lab1.bouncable.circle;
 import org.mcr.lab1.bouncable.Bouncer;
 import org.mcr.lab1.bouncable.displayer.Displayer;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.util.Random;
 
 public abstract class Circle extends Bouncer {
-    protected JPanel panel;
-    protected JFrame frame;
-
-    protected final Shape shape;
+    protected final Ellipse2D.Double shape;
 
     public Circle(Displayer displayer) {
         super(displayer);
@@ -24,16 +19,16 @@ public abstract class Circle extends Bouncer {
         getPosition().setX(rand.nextInt(displayer.getWidth() - 2 * getWidth()) + getWidth());
 
         this.shape = new Ellipse2D.Double(getPosition().getX(), getPosition().getY(), size, size);
-
-        if(displayer instanceof JFrame) {
-            this.frame = (JFrame) displayer;
-        } else {
-            throw new IllegalArgumentException("Displayer must be an instance of JFrame");
-        }
+        draw();
     }
 
     public void draw() {
-        this.panel.setBounds((int) (getPosition().getX() - 0.5 * getWidth()), (int) (getPosition().getY() - 0.5 * getHeight()), getWidth(), getHeight());
+        shape.setFrame(
+                getPosition().getX() - 0.5 * getWidth(),
+                getPosition().getY() - 0.5 * getHeight(),
+                getWidth(),
+                getHeight()
+        );
     }
 
     public void move() {

@@ -7,25 +7,12 @@ import java.awt.*;
 
 public class SquareStroke extends Square {
     private final Color color = Color.ORANGE;
-    public SquareStroke(Displayer displayer) {
-        super(displayer);
+    public SquareStroke(Displayer displayer) {super(displayer); }
 
-        this.panel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                g.setColor(color);
-                ((Graphics2D) g).setStroke(new BasicStroke(2));
-                g.drawRect(0, 0, getWidth(), getHeight());
-            }
-        };
-        this.draw();
-        this.panel.setOpaque(false);
-        this.frame.add(panel);
-    }
+    public void draw() {super.draw();}
 
-    public void draw() {
-        super.draw();
+    public void move() {
+        super.move();
     }
 
     public Color getColor() {
