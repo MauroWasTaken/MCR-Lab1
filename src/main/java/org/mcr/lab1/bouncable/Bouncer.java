@@ -1,8 +1,6 @@
 package org.mcr.lab1.bouncable;
 
 import org.mcr.lab1.bouncable.displayer.Displayer;
-import org.mcr.lab1.renderer.Renderer;
-import org.mcr.lab1.renderer.DefaultRenderer;
 
 import javax.swing.JPanel;
 import java.util.Random;
@@ -13,12 +11,8 @@ public abstract class Bouncer extends JPanel implements Bouncable {
     protected Vector2d direction;
     protected final Displayer displayer;
 
-    protected final Renderer renderer;
-
     public Bouncer(Displayer displayer) {
         this.displayer = displayer;
-
-        this.renderer = new DefaultRenderer();
 
         Random rand = new Random();
         position = new Vector2d(0,0);
