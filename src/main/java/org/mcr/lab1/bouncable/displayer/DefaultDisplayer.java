@@ -1,17 +1,25 @@
 package org.mcr.lab1.bouncable.displayer;
 
+import org.mcr.lab1.bouncable.Bouncable;
+import org.mcr.lab1.bouncable.BouncerPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
-import java.awt.image.BufferStrategy;
+import java.util.List;
 
 public class DefaultDisplayer extends JFrame implements Displayer  {
-    private BufferStrategy bufferStrategy;
 
-    public DefaultDisplayer(){
+    private final BouncerPanel panel;
+
+    public DefaultDisplayer(List<Bouncable> bouncers){
         super("");
         this.setSize(500, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        this.panel = new BouncerPanel(bouncers);
+        setContentPane(panel);
+
         this.setVisible(true);
     }
 
@@ -28,7 +36,7 @@ public class DefaultDisplayer extends JFrame implements Displayer  {
     }
 
     public void repaint(){
-        super.repaint();
+        panel.repaint();
     }
 
     public void setTitle(String title){
