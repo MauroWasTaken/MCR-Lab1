@@ -16,9 +16,10 @@ class KeyAdapter <<external>>
 ' ===== App =====
 package "org.mcr.lab1" {
   class BouncersApp {
-    - bouncers : CopyOnWriteArrayList<Bouncable>
+    - bouncers : List<Bouncable>
     - displayer : Displayer
     - keyAdapter : KeyAdapter
+    - renderer : Renderer
     - addBouncers(factory : BouncersFactory) : void
     - clearBouncers() : void
     - quit() : void
@@ -45,6 +46,12 @@ package "org.mcr.lab1.bouncable" {
     # renderer : Renderer
     + move() : void
     + draw() : void
+  }
+
+  class BouncerPanel {
+    - bouncers : List<Bouncable>
+    - renderer : Renderer
+    # paintComponent(Graphics g): void
   }
 
   class Vector2d {
@@ -109,7 +116,7 @@ package "org.mcr.lab1.bouncable.displayer" {
   }
 
   class DefaultDisplayer {
-    - bufferStrategy : BufferStrategy
+    - panel : BouncerPanel
   }
 }
 
@@ -172,7 +179,11 @@ BouncersApp "1" ..> "0..*" BouncersFactory : uses
 Bouncer "1" *-- "1" Vector2d : position
 Bouncer "1" *-- "1" Vector2d : direction
 Bouncer "1" --> "1" Displayer : boundary checks
-Bouncer "1" --> "1" Renderer : has
+
+DefaultDisplayer "1" --> "1" BouncerPanel : has
+
+BouncerPanel "1" o-- "0..*" Bouncable : handles
+BouncerPanel "1" --> "1" Renderer : uses
 
 Circle "1" *-- "1" Ellipse2DDouble : shape
 Square "1" *-- "1" Rectangle : shape

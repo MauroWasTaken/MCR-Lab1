@@ -19,7 +19,6 @@ public abstract class Circle extends Bouncer {
         getPosition().setX(rand.nextInt(displayer.getWidth() - 2 * getWidth()) + getWidth());
 
         this.shape = new Ellipse2D.Double(getPosition().getX(), getPosition().getY(), size, size);
-        //draw();
     }
 
     public void draw() {
