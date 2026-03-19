@@ -1,16 +1,19 @@
 package org.mcr.lab1.bouncable;
 
-import org.mcr.lab1.renderer.DefaultRenderer;
+import org.mcr.lab1.renderer.Renderer;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.List;
 
 public class BouncerPanel extends JPanel {
     private final List<Bouncable> bouncers;
+    private final Renderer renderer;
 
-    public BouncerPanel(List<Bouncable> bouncers) {
+    public BouncerPanel(List<Bouncable> bouncers, Renderer renderer) {
         this.bouncers = bouncers;
+        this.renderer = renderer;
         setDoubleBuffered(true);
     }
 
@@ -21,8 +24,7 @@ public class BouncerPanel extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
 
         for (Bouncable bouncer : bouncers) {
-            bouncer.draw();
-            new DefaultRenderer().display(g2, bouncer);
+            this.renderer.display(g2, bouncer);
         }
     }
 }

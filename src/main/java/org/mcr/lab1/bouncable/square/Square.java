@@ -21,7 +21,7 @@ public abstract class Square extends Bouncer {
         getPosition().setX(rand.nextInt(displayer.getWidth() - 2 * getWidth()) + getWidth());
 
         this.shape = new Rectangle(getPosition().getX(), getPosition().getY(), size, size);
-        draw();
+        //draw();
     }
 
     public void draw(){
@@ -31,9 +31,5 @@ public abstract class Square extends Bouncer {
                 getWidth(),
                 getHeight()
         );
-    }
-
-    public void move() {
-        super.move();
     }
 }

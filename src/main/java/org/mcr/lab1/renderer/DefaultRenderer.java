@@ -8,6 +8,7 @@ import java.awt.*;
 
 public class DefaultRenderer implements Renderer {
     public void display(Graphics2D graphics, Bouncable bouncable) {
+        bouncable.draw();
         graphics.setColor(bouncable.getColor());
         if (bouncable instanceof CircleStroke || bouncable instanceof SquareStroke) {
             graphics.setStroke(new BasicStroke(2f));

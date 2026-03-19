@@ -2,6 +2,7 @@ package org.mcr.lab1.bouncable.displayer;
 
 import org.mcr.lab1.bouncable.Bouncable;
 import org.mcr.lab1.bouncable.BouncerPanel;
+import org.mcr.lab1.renderer.Renderer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,12 +13,12 @@ public class DefaultDisplayer extends JFrame implements Displayer  {
 
     private final BouncerPanel panel;
 
-    public DefaultDisplayer(List<Bouncable> bouncers){
+    public DefaultDisplayer(List<Bouncable> bouncers, Renderer renderer) {
         super("");
         this.setSize(500, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        this.panel = new BouncerPanel(bouncers);
+        this.panel = new BouncerPanel(bouncers, renderer);
         setContentPane(panel);
 
         this.setVisible(true);
