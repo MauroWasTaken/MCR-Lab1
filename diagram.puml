@@ -65,7 +65,7 @@ package "org.mcr.lab1.bouncable" {
 }
 
 package "org.mcr.lab1.bouncable.circle" {
-  abstract class Circle {
+  abstract class "Circle" {
     # shape : Ellipse2DDouble
     + draw() : void
     + move() : void
