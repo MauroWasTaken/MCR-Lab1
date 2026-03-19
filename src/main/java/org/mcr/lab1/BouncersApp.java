@@ -1,6 +1,7 @@
 package org.mcr.lab1;
 
 import org.mcr.lab1.bouncable.Bouncable;
+import org.mcr.lab1.bouncable.BouncerPanel;
 import org.mcr.lab1.bouncable.displayer.DefaultDisplayer;
 import org.mcr.lab1.bouncable.displayer.Displayer;
 import org.mcr.lab1.factories.BouncersFactory;
@@ -36,7 +37,8 @@ public class BouncersApp {
 
     public BouncersApp (){
         renderer = new DefaultRenderer();
-        displayer = new DefaultDisplayer(bouncers, renderer);
+        final BouncerPanel panel = new BouncerPanel(bouncers, renderer);
+        displayer = new DefaultDisplayer(panel);
         displayer.setTitle("Bouncers");
         keyAdapter = new KeyAdapter() {
             @Override

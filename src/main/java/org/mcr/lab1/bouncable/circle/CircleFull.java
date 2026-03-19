@@ -2,7 +2,8 @@ package org.mcr.lab1.bouncable.circle;
 
 import org.mcr.lab1.bouncable.displayer.Displayer;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Shape;
 
 public class CircleFull extends Circle {
     private final Color color = Color.BLUE;

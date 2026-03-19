@@ -4,7 +4,8 @@ import org.mcr.lab1.bouncable.Bouncable;
 import org.mcr.lab1.bouncable.circle.CircleStroke;
 import org.mcr.lab1.bouncable.square.SquareStroke;
 
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Graphics2D;
 
 public class DefaultRenderer implements Renderer {
     public void display(Graphics2D graphics, Bouncable bouncable) {

@@ -1,6 +1,6 @@
 package org.mcr.lab1.bouncable.displayer;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.event.KeyAdapter;
 
 public interface Displayer {

@@ -1,6 +1,7 @@
 package org.mcr.lab1.bouncable;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Shape;
 
 public interface Bouncable {
     void draw();

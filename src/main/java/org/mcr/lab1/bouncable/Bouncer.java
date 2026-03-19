@@ -4,7 +4,7 @@ import org.mcr.lab1.bouncable.displayer.Displayer;
 import org.mcr.lab1.renderer.Renderer;
 import org.mcr.lab1.renderer.DefaultRenderer;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 import java.util.Random;
 
 public abstract class Bouncer extends JPanel implements Bouncable {

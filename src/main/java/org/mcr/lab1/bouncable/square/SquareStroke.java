@@ -2,7 +2,8 @@ package org.mcr.lab1.bouncable.square;
 
 import org.mcr.lab1.bouncable.displayer.Displayer;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Shape;
 
 public class SquareStroke extends Square {
     private final Color color = Color.RED;
