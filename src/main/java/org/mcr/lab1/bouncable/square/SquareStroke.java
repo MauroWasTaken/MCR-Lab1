@@ -6,10 +6,8 @@ import java.awt.Color;
 import java.awt.Shape;
 
 public class SquareStroke extends Square {
-    private final Color color = Color.RED;
-    public SquareStroke(Displayer displayer) {
-        super(displayer);
-    }
+    private final Color color = Color.ORANGE;
+    public SquareStroke(Displayer displayer) {super(displayer); }
 
     public Color getColor() {
         return this.color;

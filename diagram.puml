@@ -1,0 +1,192 @@
+@startuml
+title BouncersApp - Class Diagram
+footer Generated with assistance from ChatGPT.
+skinparam classAttributeIconSize 0
+hide empty methods
+hide empty fields
+
+' ===== External (JDK/Swing) =====
+class JFrame <<external>>
+class Graphics2D <<external>>
+class Shape <<external>>
+class Rectangle <<external>>
+class "Ellipse2D.Double" as Ellipse2DDouble <<external>>
+class KeyAdapter <<external>>
+
+' ===== App =====
+package "org.mcr.lab1" {
+  class BouncersApp {
+    - bouncers : CopyOnWriteArrayList<Bouncable>
+    - displayer : Displayer
+    - keyAdapter : KeyAdapter
+    - addBouncers(factory : BouncersFactory) : void
+    - clearBouncers() : void
+    - quit() : void
+    + run() : void
+    + main(args : String[]) : void
+  }
+}
+
+' ===== Bouncable =====
+package "org.mcr.lab1.bouncable" {
+  interface Bouncable {
+    + draw() : void
+    + move() : void
+    + getColor() : Color
+    + getShape() : Shape
+  }
+
+  abstract class Bouncer {
+    - width : int
+    - height : int
+    # position : Vector2d
+    # direction : Vector2d
+    # displayer : Displayer
+    # renderer : Renderer
+    + move() : void
+    + draw() : void
+  }
+
+  class Vector2d {
+    - x : int
+    - y : int
+    + getX() : int
+    + getY() : int
+    + setX(x : int) : void
+    + setY(y : int) : void
+  }
+}
+
+package "org.mcr.lab1.bouncable.circle" {
+  abstract class Circle {
+    # shape : Ellipse2DDouble
+    + draw() : void
+    + move() : void
+  }
+
+  class CircleFull {
+    - color : Color
+    + getColor() : Color
+    + getShape() : Shape
+  }
+
+  class CircleStroke {
+    - color : Color
+    + getColor() : Color
+    + getShape() : Shape
+  }
+}
+
+package "org.mcr.lab1.bouncable.square" {
+  abstract class Square {
+    # shape : Rectangle
+    + draw() : void
+    + move() : void
+  }
+
+  class SquareFull {
+    - color : Color
+    + getColor() : Color
+    + getShape() : Shape
+  }
+
+  class SquareStroke {
+    - color : Color
+    + getColor() : Color
+    + getShape() : Shape
+  }
+}
+
+' ===== Displayer =====
+package "org.mcr.lab1.bouncable.displayer" {
+  interface Displayer {
+    + getWidth() : int
+    + getHeight() : int
+    + getGraphics() : Graphics2D
+    + repaint() : void
+    + setTitle(title : String) : void
+    + addKeyListener(keyAdapter : KeyAdapter) : void
+  }
+
+  class DefaultDisplayer {
+    - bufferStrategy : BufferStrategy
+  }
+}
+
+' ===== Renderer =====
+package "org.mcr.lab1.renderer" {
+  interface Renderer {
+    + display(graphics : Graphics2D, bouncable : Bouncable) : void
+  }
+
+  class DefaultRenderer {
+    + display(graphics : Graphics2D, bouncable : Bouncable) : void
+  }
+}
+
+' ===== Factories =====
+package "org.mcr.lab1.factories" {
+  interface BouncersFactory {
+    + createSquare(displayer : Displayer) : Bouncer
+    + createCircle(displayer : Displayer) : Bouncer
+  }
+
+  class FullFactory {
+    - instance : FullFactory
+    + getInstance() : FullFactory
+    + createSquare(displayer : Displayer) : Bouncer
+    + createCircle(displayer : Displayer) : Bouncer
+  }
+
+  class StrokeFactory {
+    - instance : StrokeFactory
+    + getInstance() : StrokeFactory
+    + createSquare(displayer : Displayer) : Bouncer
+    + createCircle(displayer : Displayer) : Bouncer
+  }
+}
+
+' ===== Inheritance / Implementation =====
+Bouncer ..|> Bouncable
+Circle --|> Bouncer
+Square --|> Bouncer
+
+CircleFull --|> Circle
+CircleStroke --|> Circle
+SquareFull --|> Square
+SquareStroke --|> Square
+
+DefaultDisplayer ..|> Displayer
+DefaultDisplayer --|> JFrame
+
+DefaultRenderer ..|> Renderer
+FullFactory ..|> BouncersFactory
+StrokeFactory ..|> BouncersFactory
+
+' ===== Associations / Multiplicities =====
+BouncersApp "1" o-- "0..*" Bouncable : bouncers
+BouncersApp "1" --> "1" Displayer : uses
+BouncersApp "1" ..> "1" Renderer : creates
+BouncersApp "1" ..> "0..*" BouncersFactory : uses
+
+Bouncer "1" *-- "1" Vector2d : position
+Bouncer "1" *-- "1" Vector2d : direction
+Bouncer "1" --> "1" Displayer : boundary checks
+Bouncer "1" --> "1" Renderer : has
+
+Circle "1" *-- "1" Ellipse2DDouble : shape
+Square "1" *-- "1" Rectangle : shape
+
+Renderer "1" ..> "1" Graphics2D
+Renderer "1" ..> "1" Bouncable
+
+Displayer "1" ..> "1" Graphics2D
+Displayer "1" ..> "0..*" KeyAdapter
+
+FullFactory "1" ..> "0..*" CircleFull : creates
+FullFactory "1" ..> "0..*" SquareFull : creates
+StrokeFactory "1" ..> "0..*" CircleStroke : creates
+StrokeFactory "1" ..> "0..*" SquareStroke : creates
+
+
+@enduml

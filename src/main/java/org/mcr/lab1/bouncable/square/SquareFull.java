@@ -8,9 +8,7 @@ import java.awt.Shape;
 public class SquareFull extends Square {
     private final Color color = Color.ORANGE;
 
-    public SquareFull(Displayer displayer) {
-        super(displayer);
-    }
+    public SquareFull(Displayer displayer) { super(displayer); }
 
     public Color getColor() {
         return this.color;
